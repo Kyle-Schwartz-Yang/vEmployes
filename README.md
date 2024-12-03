@@ -19,7 +19,7 @@
 ### 🐸 Technologies
 
 ```js
-  const description = ["Software Prepros", 'pug', 'JAVASCRIPT', 'Typescript' 'SCSS', 'Components', 'CRUD']
+  const description = ["Software Prepros", 'PUG', 'JAVASCRIPT', 'Typescript' 'SCSS', 'Components', 'CRUD']
 ```
 
 ### 🚥 Installation (default)

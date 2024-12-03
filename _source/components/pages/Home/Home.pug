@@ -1,0 +1,37 @@
+//- ----------------------------Наследственность
+//- extends ../shared/settings/pug/core/main.pug.pug
+extends ../../app/pug/main.pug
+//- ----------------------------Наследственность
+
+//-! -------------------------------------- PART
+//- include ../../shared/components/Accordion/_Accordion.pug
+
+//-! -------------------------------------- PART
+
+//-* -------------------------------------HEAD
+block settings
+  -
+    var settings = {
+      title: 'Sandbox',
+      lang: 'uk',
+    }
+  -
+prepend connection 
+  link(rel="stylesheet", href="./css/main.css")
+//-* -------------------------------------HEAD
+
+
+//-: --------------------------------------BODY
+
+block content
+  
+  main.main 
+    section.welcome
+
+
+
+
+block scripts
+  script(type="module", src=`./script/app.js`)
+//-: --------------------------------------BODY
+

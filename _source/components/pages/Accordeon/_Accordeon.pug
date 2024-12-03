@@ -1,0 +1,40 @@
+
+//- ----------------------------Наследственность
+extends ../../app/pug/main.pug
+//- ----------------------------Наследственность
+
+//-! -------------------------------------- PART
+
+
+include ../../shared/components/Accordion/_Accordion.pug
+include ./components/Acc/_Acc.pug
+//-! -------------------------------------- PART
+
+//-* -------------------------------------HEAD
+block settings
+  -
+    var settings = {
+      title: 'serivice',
+      lang: 'uk',
+    }
+  -
+prepend connection 
+  //- link(rel="stylesheet", href="./css/main.css")
+//-* -------------------------------------HEAD
+
+
+//-: --------------------------------------BODY
+
+block content
+
+  main.main 
+    section.accordeon-page
+      .accordeon-page__container
+        h1.accordeon-page__title.title Accordeon page
+        +_Acc()
+
+
+
+block scripts
+  script(type="module", src=`./script/app.js`)
+//-: --------------------------------------BODY

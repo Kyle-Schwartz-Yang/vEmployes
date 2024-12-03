@@ -1,0 +1,44 @@
+// !------------------------------
+html {
+  font-size: $f-size-rem;
+
+  //+ YES or NO ?
+  @supports (scrollbar-width: thin) {
+    scrollbar-color: #000 rgba(240, 240, 240, .1);
+    scrollbar-width: thin;
+  }
+}
+
+body {
+  background-color: var(--color-white);
+  background-color: #1e1f35;
+  color: var(--color-white);
+  font-family: $font-face;
+  font-size: $f-size-default;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+  @include flexbox(flex, null, null, column, null, null);
+}
+
+[class*="__container"] {
+  max-width: 123rem;
+  margin: 0 auto;
+  padding: 0px 1.5rem;
+}
+
+.main {
+  flex: 1 0 auto; // (flex-grow:0; flex-shrink:1; flex-basis:auto;)
+  // min-height: 100vh; //? [Fix Scrollbar MultiPage] ?\\
+}
+
+
+
+.block-content {
+
+  & p:not(:last-child){
+    margin-bottom: 2rem;
+  }
+}

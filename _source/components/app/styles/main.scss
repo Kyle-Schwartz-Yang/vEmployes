@@ -1,0 +1,36 @@
+// -----------------------------------НАСТРОЙКИ ПРОЕКТА
+@import './settings/_nullstyle';
+@import './settings/_root-variables';
+@import './settings/_scss-variables';
+@import './settings/_font-faces';
+
+// ------------------------HELPER
+@import './helpers/_index.scss'; //-(mixin, placeholder, keyframes, overall)
+// ------------------------HELPER
+
+@import './settings/_settings-project';
+// -----------------------------------НАСТРОЙКИ ПРОЕКТА
+
+
+// ------------------------------------------ common widgets
+@import '../../widgets/Header/_Header.scss';
+@import '../../widgets/Footer/_Footer.scss';
+
+// -------------------------------------------- common widgets
+
+
+// -------------------------------------------- common Components
+// @import'../../shared/components/Contact-details/_Contact-details.scss';
+// @import '../../widgets/GoogleMaps/_GoogleMaps.scss';
+// @import '../../features/TabbedSystem/_Tabbed-system';
+
+
+
+// -------------------------------------------- common Components
+
+
+// ------------------------------------------------------PAGE
+@import '../../pages/Home/_Home.scss';
+@import '../../pages/Accordeon/_Accordeon.scss';
+
+// ------------------------------------------------------PAGE

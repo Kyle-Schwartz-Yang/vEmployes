@@ -1,0 +1,44 @@
+
+
+
+mixin _Acc()
+  -
+
+    const items = [
+      {
+        title:'Accordion 1 ', 
+        content: `
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+        </p>
+        `
+      },
+      {
+        title:'Accordion 2', 
+        content: `
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+        </p>
+        `
+      },
+      {
+        title:'Accordion 3', 
+        content: `
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et molestias nostrum ad ullam, debitis ipsa eveniet perferendis veritatis, soluta, saepe qui tenetur numquam possimus tempora maiores harum quibusdam neque necessitatibus?
+        </p>
+        `
+      }
+    ]
+
+  //- +_Accordion(items, {},  {'data-spollers': '768, max'} )
+  
+  +_Accordion(items, {},  {'data-spollers': ''} )

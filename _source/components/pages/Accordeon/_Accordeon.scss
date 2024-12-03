@@ -1,0 +1,21 @@
+
+@import '../../shared/components/Accordion/_Accordion.scss';
+
+
+
+.accordeon-page {
+padding-top: 20rem;
+
+  &__container {
+    // padding-top: 10rem;
+  
+  }
+  &__title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-align: center;
+    &:not(:last-child){
+      margin-bottom: 3rem;
+    }
+  }
+}

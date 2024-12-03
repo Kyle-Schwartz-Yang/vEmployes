@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-align: center;
+  margin-top: 7rem;
+  text-transform: uppercase;
+  padding: 3rem 1rem;
+  z-index: var(--nine);
+
+  & strong {
+    font-weight: 800;
+  }
+}

@@ -1,0 +1,48 @@
+include ./components/_HeaderMenu.pug
+
+mixin Header()
+  -
+    const menu = [
+      {
+        text: 'Home',
+        href: 'index.html',
+      },
+      {
+        text: 'Accordeon',
+        href: 'accordeon.html',
+      },
+      {
+        text: 'Supports',
+        href: 'supports.html',
+      },
+      {
+        text: 'Service',
+        href: 'service.html',
+      },
+      {
+        text: 'Finance',
+        href: '/html/financing.html',
+      },
+      {
+        text: 'International',
+        href: '/html/international.html',
+      },
+      {
+        text: 'About',
+        href: '/html/about.html',
+      },
+      {
+        text: 'Contacts',
+        href: '/html/contacts.html',
+      },
+
+    ]
+  -
+
+  header.header.fixed-element
+    .header__container
+      a(href="index.html").header__logo.dark-theme
+        .logo <span>U</span><span>A</span> Employees
+
+      .header__menu
+        +_HeaderMenu(menu)
