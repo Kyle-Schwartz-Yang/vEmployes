@@ -6,6 +6,8 @@ extends ../../app/pug/main.pug
 //-! -------------------------------------- PART
 //- include ../../shared/components/Accordion/_Accordion.pug
 
+include ../../widgets/EmpInfo/_empInfo.pug
+
 //-! -------------------------------------- PART
 
 //-* -------------------------------------HEAD
@@ -27,7 +29,7 @@ block content
   
   main.main 
     section.welcome
-
+    +EmpInfo({ total: 150, bonus: 50, isAdmin: true })
 
 
 
