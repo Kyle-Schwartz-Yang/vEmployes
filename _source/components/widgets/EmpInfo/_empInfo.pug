@@ -1,12 +1,19 @@
 //- mixins.pug
+
+
+
+
+
+
 mixin EmpInfo(arg)
 
   -
-    const isCompanny = arg.isAdmin ? 'Yes' : 'No' 
+    const isAdmin = arg.isAdmin ? 'Yes' : 'No' 
+    const {total, bonus} = arg
   -
 
   .emp-info
-    h1 Учет сотруднико в компании #{isCompanny}
-    h2 Общее количество сотрудников: #{arg.total}
-    h2 Премию получат: #{arg.bonus}
+    h1.emp-info__title Учет сотруднико в компании: #{isAdmin}
+    h2.emp-info__subtitle Общее количество сотрудников: #{total}
+    h2.emp-info__subtitle Премию получат: #{bonus}
 
