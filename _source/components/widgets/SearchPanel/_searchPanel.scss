@@ -1,17 +1,14 @@
-.emp-info {
+
+.search-panel {
+  margin-top: 30px;
   padding: 25px;
   background-color: #000;
   border-radius: 10px;
   box-shadow: 15px 15px 30px rgba(0,0,0, .15);
   color: #fff;
-
-&__title {
-  font-size: 3rem;
-  margin-bottom: 2rem;
 }
 
-  &__subtitle {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+.form-control {
+  font-size: 1.6rem;
 }
+

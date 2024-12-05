@@ -1,0 +1,30 @@
+
+
+
+mixin EmpFilter()
+  -
+    const label = 'Кнопка';
+
+    const buttonData = [
+      { type: 'button', label: "Все сотрудники", name: "All" },
+      { type: 'button', label: "На повышение", name: "Rise" },
+      { type: 'button', label: "ЗП больше чем 1000$", name: "Salary" }
+    ]
+    
+    const buttons = buttonData.map(( { type, label, name } ) => {
+
+      return `<button 
+        type=${type} 
+        name=${name}
+        class='btn btn-outline-light'
+        > ${label} </button>
+        `
+    }).join('')
+  -
+
+  .btn-group: != buttons
+  
+
+
+
+

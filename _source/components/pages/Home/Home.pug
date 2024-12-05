@@ -7,7 +7,9 @@ extends ../../app/pug/main.pug
 //- include ../../shared/components/Accordion/_Accordion.pug
 
 include ../../widgets/EmpInfo/_empInfo.pug
-
+include ../../widgets/SearchPanel/_searchPanel.pug
+include ../../widgets/EmpFilter/_empFilter.pug
+include ../../widgets/EmpList/_empList.pug
 //-! -------------------------------------- PART
 
 //-* -------------------------------------HEAD
@@ -29,7 +31,13 @@ block content
   
   main.main 
     section.welcome
-    +EmpInfo({ total: 150, bonus: 50, isAdmin: true })
+      +EmpInfo({ total: 150, bonus: 50, isAdmin: true })
+
+      div.search-panel 
+        +SearchPanel()
+        +EmpFilter()
+      +EmpList()
+
 
 
 
