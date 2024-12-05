@@ -1,0 +1,9 @@
+mixin EmpAddForm()
+
+  div.app-add-form 
+    h3 Добавьте новго сотрудника
+    form(class= 'add-form d-flex')
+      input(type='text', class='form-control new-post-label', placeholder='Введите ваше имя:', name='name')
+      input(type='number', class='form-control new-post-label', placeholder='ЗП', name='salary')
+      button(type='sumbit', class='btn btn-outline-light') Добавить
+
