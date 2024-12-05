@@ -1180,3 +1180,22 @@ body {
 .list-group-item.increase .btn-star {
   color: #aeaeae;
 }
+
+.app-add-form {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #000;
+  border-radius: 10px;
+  -webkit-box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
+
+.add-form {
+  margin-top: 20px;
+}
+
+.add-form input {
+  width: 350px;
+  margin-right: 20px;
+}
