@@ -1,43 +1,38 @@
 // -----------------------------------НАСТРОЙКИ ПРОЕКТА
-@import './settings/_nullstyle';
-@import './settings/_root-variables';
-@import './settings/_scss-variables';
-@import './settings/_font-faces';
+@import "./settings/_nullstyle";
+@import "./settings/_root-variables";
+@import "./settings/_scss-variables";
+@import "./settings/_font-faces";
 
 // ------------------------HELPER
-@import './helpers/_index.scss'; //-(mixin, placeholder, keyframes, overall)
+@import "./helpers/_index.scss"; //-(mixin, placeholder, keyframes, overall)
 // ------------------------HELPER
 
-@import './settings/_settings-project';
+@import "./settings/_settings-project";
 // -----------------------------------НАСТРОЙКИ ПРОЕКТА
 
-
 // ------------------------------------------ common widgets
-@import '../../widgets/Header/_Header.scss';
-@import '../../widgets/Footer/_Footer.scss';
+@import "../../widgets/Header/_Header.scss";
+@import "../../widgets/Footer/_Footer.scss";
 
 // -------------------------------------------- common widgets
-
 
 // -------------------------------------------- common Components
 // @import'../../shared/components/Contact-details/_Contact-details.scss';
 // @import '../../widgets/GoogleMaps/_GoogleMaps.scss';
 // @import '../../features/TabbedSystem/_Tabbed-system';
 
-
-
 // -------------------------------------------- common Components
 
+// ------------------------------------------------------PAGE
+@import "../../pages/Home/_Home.scss";
+@import "../../pages/Accordeon/_Accordeon.scss";
 
 // ------------------------------------------------------PAGE
-@import '../../pages/Home/_Home.scss';
-@import '../../pages/Accordeon/_Accordeon.scss';
 
-// ------------------------------------------------------PAGE
-
-@import '../../widgets/EmpInfo/_empInfo';
-@import '../../widgets/SearchPanel/_searchPanel';
-@import '../../widgets/EmpFilter/_empFilter';
-@import '../../widgets/EmpList/_empList';
-@import '../../widgets/EmpListElem/_empListElem';
-@import '../../widgets/EmpAddForm/_empAddForm';
+@import "../../widgets/EmpInfo/_empInfo";
+@import "../../widgets/SearchPanel/_searchPanel";
+@import "../../widgets/EmpFilter/_empFilter";
+@import "../../widgets/EmpList/_empList";
+@import "../../widgets/EmpListElem/_empListElem";
+@import "../../widgets/EmpAddForm/_empAddForm";

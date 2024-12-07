@@ -4,7 +4,7 @@ html {
 
   //+ YES or NO ?
   @supports (scrollbar-width: thin) {
-    scrollbar-color: #000 rgba(240, 240, 240, .1);
+    scrollbar-color: #000 rgba(240, 240, 240, 0.1);
     scrollbar-width: thin;
   }
 }
@@ -33,6 +33,3 @@ body {
   flex: 1 0 auto; // (flex-grow:0; flex-shrink:1; flex-basis:auto;)
   // min-height: 100vh; //? [Fix Scrollbar MultiPage] ?\\
 }
-
-
-

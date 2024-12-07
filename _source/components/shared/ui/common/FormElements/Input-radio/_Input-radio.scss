@@ -1,5 +1,4 @@
 .options {
-
   // .options__item
 
   &__item {
@@ -15,10 +14,9 @@
     - Поэтому я буду использовать специальный класс .hidden
     */
 
-    &:checked+.options__label::after {
+    &:checked + .options__label::after {
       transform: scale(1);
     }
-
   }
 
   // .options__label
@@ -32,9 +30,8 @@
     position: relative;
     cursor: pointer;
 
-
     &::before {
-      content: '';
+      content: "";
       align-self: flex-start;
       flex: 0 0 24px;
       height: 24px;
@@ -45,7 +42,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 4px;
       left: 4px;
@@ -53,7 +50,7 @@
       height: 16px;
       background-color: green;
       border-radius: 50%;
-      transition: .33s;
+      transition: 0.33s;
       transform: scale(0);
     }
 

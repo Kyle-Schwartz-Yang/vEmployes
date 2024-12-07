@@ -2,7 +2,7 @@
 // ! --------------------------------------------------( BURGER DEFAULT )
 
 //@include burgerDefault('._open', '#fff', true)
-@mixin burgerDefault($className, $bgcolor: null, $hover: null, ) {
+@mixin burgerDefault($className, $bgcolor: null, $hover: null) {
   all: initial;
   display: inline-block;
   cursor: pointer;
@@ -21,12 +21,12 @@
     width: 100%;
     height: 4px;
     background: $bgcolor;
-    transition: all .33s ease;
+    transition: all 0.33s ease;
   }
 
   &::after,
   &::before {
-    content: '';
+    content: "";
   }
 
   &::after {
@@ -42,32 +42,27 @@
     transform: translateY(-50%) scale(1);
   }
 
-
   // ---------------------------------------------------&:HOVER
-
 
   // + УНИКАЛЬНЫЙ HOVER ПОПРОБУЙ
 
   @if $hover {
     &:hover {
-      transition: .33s;
+      transition: 0.33s;
 
       &::after {
         transform: translateY(1.5px) rotate(-4.5deg);
       }
 
       span {
-        transform: translateY(-50%) scale(.95);
+        transform: translateY(-50%) scale(0.95);
       }
 
       &::before {
-
         transform: translateY(-1.5px) rotate(4.5deg);
-
       }
     }
   }
-
 
   // ---------------------------------------------------&:HOVER
 
@@ -104,7 +99,7 @@
 
   &::after,
   &::before {
-    content: '';
+    content: "";
   }
 
   &::after,
@@ -115,10 +110,9 @@
     width: 100%;
     height: 3px;
     background-color: $color-accent;
-    transition: all .2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
+    transition: all 0.2s cubic-bezier(0.25, 0.25, 0.75, 0.75);
     border-radius: 10%;
   }
-
 
   &::after {
     top: 0;
@@ -151,14 +145,9 @@
     transform: rotate(225deg) translateY(50%);
     // transform: translate(0px, -50%) rotate(45deg);
   }
-
 }
 
-
-
-
 //1010101001101001010101001010101010010101010100101010101001010101010101010100101010101010
-
 
 // ! --------------------------------------------------( REPEAT BUTTON )
 @mixin buttonDefault($background-color: #fff, $text-color: #000) {

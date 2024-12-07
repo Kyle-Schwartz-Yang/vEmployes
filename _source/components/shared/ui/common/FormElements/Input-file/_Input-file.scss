@@ -1,5 +1,4 @@
 .file {
-
   display: flex;
   flex-direction: column;
 
@@ -23,7 +22,6 @@
     opacity: 0;
     cursor: pointer;
     font-size: 0;
-
   }
 
   // .file__button
@@ -34,13 +32,11 @@
     background-color: #9478b3;
     cursor: pointer;
     overflow: hidden;
-
   }
 
   // .file__preview
 
   &__preview {
-
     // display: none;
     // max-width: 50%;
     height: 200px;

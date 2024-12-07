@@ -1,15 +1,17 @@
-//*Background                   (START) 
+//*Background                   (START)
 //-------------------------
 //>Описание: Подключения background. (Просто удобно)
 //-------------------------
 // Snippet @background
 //# EXP:  @include background(image, color, repeat, position, size, attachment);
-@mixin background($image,
+@mixin background(
+  $image,
   $color: null,
   $repeat: null,
   $position: null,
   $size: null,
-  $attachment: null, ) {
+  $attachment: null
+) {
   background-image: url(#{$image});
 
   @if $color !=null {
@@ -31,7 +33,6 @@
   @if $position !=null {
     background-attachment: $attachment;
   }
-
 }
 
 //-------------------------

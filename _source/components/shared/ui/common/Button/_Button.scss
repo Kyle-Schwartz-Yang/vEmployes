@@ -2,12 +2,11 @@
 //   @extend %button-reset;
 // }
 
-
 .button-global {
   @extend %button-reset;
   // ----------------------
 
-  font-family: 'Simpson';
+  font-family: "Simpson";
   font-size: 2rem;
   font-weight: 500;
   color: var(--color-white);
@@ -18,19 +17,22 @@
   border-radius: 0.5rem;
   transition: all 0.3s ease;
   // border: 1px solid #000;
-  text-shadow: 1px 1px 0 #000,
+  text-shadow:
+    1px 1px 0 #000,
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     2px 2px 5px #000;
 
-  box-shadow: 0 3px 6px rgba(237, 236, 239, 0.3),
+  box-shadow:
+    0 3px 6px rgba(237, 236, 239, 0.3),
     0 -3px 6px rgba(0, 0, 0, 0.3),
     0 3px 12px rgba(0, 0, 0, 1);
 
   // ----------------------
   &:hover {
-    box-shadow: 0 3px 6px rgba(4, 4, 4, 0.3),
+    box-shadow:
+      0 3px 6px rgba(4, 4, 4, 0.3),
       0 -3px 6px rgba(0, 0, 0, 0.3),
       0 3px 12px rgba(0, 0, 0, 1);
   }
@@ -38,7 +40,7 @@
   // ----------------------
   &--forward {
     background-color: #d7bb0f;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
 
     &:hover {
       background-color: #4a36b7;
@@ -46,7 +48,6 @@
       // color: #d7bb0f;
       color: var(--color-white);
     }
-
   }
 
   // ----------------------
@@ -60,5 +61,4 @@
       color: var(--color-white);
     }
   }
-
 }

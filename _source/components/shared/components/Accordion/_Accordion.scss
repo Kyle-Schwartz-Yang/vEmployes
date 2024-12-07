@@ -1,12 +1,8 @@
 .accordion {
-
-
   &__item {
-
     & p:not(:last-child) {
       margin-bottom: 2rem;
     }
-  
   }
 
   &__title {
@@ -15,7 +11,6 @@
     width: 100%;
     font-size: 3rem;
     font-weight: 600;
-
 
     border: 1px solid var(--color-black);
     padding: 1rem;
@@ -27,12 +22,8 @@
     font-size: 1.6rem;
     padding: 0 10px 10px;
     line-height: 110%;
-
-
   }
-
 }
-
 
 .accordion._init .accordion__title {
   cursor: pointer;
@@ -40,7 +31,6 @@
 
 .accordion._init .accordion__title {
   padding: 10px 40px 10px 10px;
-
 }
 
 .accordion._init .accordion__title::before,
@@ -57,12 +47,8 @@
 
 .accordion._init .accordion__title::after {
   transform: rotate(-90deg);
-
 }
-
 
 .accordion._init .accordion__title._active::after {
   transform: rotate(0deg);
-
-
 }

@@ -1,17 +1,16 @@
-
-export  const empFilter = (data, employees) => {
-  const buttonFilter = document.querySelectorAll('.btn-filter');
+export const empFilter = (data, employees) => {
+  const buttonFilter = document.querySelectorAll(".btn-filter");
 
   buttonFilter.forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener("click", () => {
       const filterType = button.name;
       let filterData = [];
 
       switch (filterType) {
-        case 'Rise':
+        case "Rise":
           filterData = data.filter((element) => element.rise); // Фільтруємо дані
           break;
-        case 'Salary':
+        case "Salary":
           filterData = data.filter((element) => element.salary > 1000);
           break;
         default:
@@ -20,7 +19,6 @@ export  const empFilter = (data, employees) => {
       }
 
       employees.loadInitialData(filterData); // Оновлюємо дані
-
     });
   });
-}
+};

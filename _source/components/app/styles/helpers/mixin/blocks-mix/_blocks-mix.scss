@@ -1,13 +1,14 @@
 // !--------------------------------------------- FLEXBOX
 
 //  @include flexbox(flex, space-between, center, row, wrap, 30px);
-@mixin flexbox($flex: null,
+@mixin flexbox(
+  $flex: null,
   $justify-content: null,
   $align-items: null,
   $direction: null,
   $wrap: null,
-  $gap: null) {
-
+  $gap: null
+) {
   @if $flex {
     display: $flex;
   }
@@ -33,10 +34,15 @@
   }
 }
 
-
 // !--------------------------------------------- GRID Layout
 //@include grid(2, 1fr, (50px 20px));
-@mixin grid($columns: 2, $resize-column: 1fr, $gap: (30px)) {
+@mixin grid(
+  $columns: 2,
+  $resize-column: 1fr,
+  $gap: (
+    30px,
+  )
+) {
   display: grid;
   grid-template-columns: repeat($columns, $resize-column);
   gap: $gap; //row-gap + column-gap
@@ -50,7 +56,6 @@ body {
   @include clamp(margin-top, 10px, 50px, 40vw, 100vw);
 }
 */
-
 
 @mixin clamp-adaptive($property, $min-value, $max-value, $min-vw, $max-vw) {
   $slope: calc(($max-value - $min-value) / ($max-vw - $min-vw));
