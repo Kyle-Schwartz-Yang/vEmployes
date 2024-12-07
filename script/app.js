@@ -11,6 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _widgets_Header_Header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _shared_components_Accordion_Accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _modules_initEmployes_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
 // ----------------------------NO-Modules (START)
 
 
@@ -21,7 +22,8 @@ __webpack_require__.r(__webpack_exports__);
 var modules = {
   // -------------------NO-Modules
   initHeaderMenu: _widgets_Header_Header_js__WEBPACK_IMPORTED_MODULE_0__.initHeaderMenu,
-  initAccordion: _shared_components_Accordion_Accordion_js__WEBPACK_IMPORTED_MODULE_1__.initAccordion
+  initAccordion: _shared_components_Accordion_Accordion_js__WEBPACK_IMPORTED_MODULE_1__.initAccordion,
+  initEmployes: _modules_initEmployes_js__WEBPACK_IMPORTED_MODULE_2__.initEmployes
   // -------------------NO-Modules
 };
 
@@ -331,6 +333,206 @@ var initAccordion = function initAccordion() {
 
 //====================================================================================================================================================
 
+/***/ }),
+/* 5 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initEmployes: function() { return /* binding */ initEmployes; }
+/* harmony export */ });
+/* harmony import */ var _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+
+
+
+var initEmployes = function initEmployes() {
+  var employees = new _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__["default"]('.app-list'); // Створюємо екземпляр класу
+  // // // Завантаження початкових даних
+
+  var data = [{
+    name: 'Fedor Simpon',
+    salary: 500,
+    increase: true,
+    rise: true
+  }, {
+    name: 'Thomas Anderson',
+    salary: 1000,
+    increase: false,
+    rise: false
+  }, {
+    name: 'Conor Simpon',
+    salary: 2000,
+    increase: false,
+    rise: false
+  }, {
+    name: 'Si Shopin',
+    salary: 3000,
+    increase: false,
+    rise: false
+  }];
+  employees.loadInitialData(data);
+  (0,_widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])(data, employees);
+  (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, employees);
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+var Employees = /*#__PURE__*/function () {
+  function Employees(containerSelector) {
+    _classCallCheck(this, Employees);
+    this.data = [];
+    this.container = document.querySelector(containerSelector);
+  }
+
+  // Завантаження початкових даних
+  return _createClass(Employees, [{
+    key: "loadInitialData",
+    value: function loadInitialData(data) {
+      this.data = data;
+      this.render();
+    }
+
+    // Додавання співробітника
+  }, {
+    key: "addEmployee",
+    value: function addEmployee(name, salary) {
+      var increase = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+      var rise = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+      var employee = {
+        name: name,
+        salary: salary,
+        increase: increase,
+        rise: rise
+      };
+      this.data.push(employee);
+      this.render();
+    }
+
+    // Видалення співробітника
+  }, {
+    key: "removeEmployee",
+    value: function removeEmployee(index) {
+      this.data.splice(index, 1);
+      this.render();
+    }
+
+    // Генерація HTML для одного співробітника
+  }, {
+    key: "createEmployeeElement",
+    value: function createEmployeeElement(employee, index) {
+      var _this = this;
+      var li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between';
+      if (employee.increase) li.classList.add('increase');
+      if (employee.rise) li.classList.add('like');
+      li.innerHTML = "\n      <span class=\"list-group-item-label\">".concat(employee.name, "</span>\n      <input type=\"text\" class=\"list-group-item-input\" value=\"").concat(employee.salary, "\">\n      <div class=\"d-flex justify-content-center align-items-center\">\n        <button type=\"button\" class=\"btn-cookie btn-sm\">\n          <i class=\"fas fa-cookie\"></i>\n        </button>\n        <button type=\"button\" class=\"btn-trash btn-sm\">\n          <i class=\"fas fa-trash\"></i>\n        </button>\n        <i class=\"fas fa-star\"></i>\n      </div>\n    ");
+      var trash = li.querySelector('.btn-trash');
+      var item = li.querySelector('.list-group-item-label');
+      var cookie = li.querySelector('.btn-cookie');
+      trash.addEventListener('click', function () {
+        return _this.removeEmployee(index);
+      });
+      item.addEventListener('click', function () {
+        employee.rise = !employee.rise;
+        _this.render();
+      });
+      cookie.addEventListener('click', function () {
+        employee.increase = !employee.increase;
+        _this.render();
+      });
+      return li;
+    }
+
+    // Відображення списку
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+      this.container.innerHTML = '';
+      var empty = document.querySelector('.empty-message');
+      if (this.data.length <= 0) {
+        empty.style = 'display: block';
+        return;
+      }
+      empty.style.display = 'none';
+      this.data.forEach(function (employee, index) {
+        var employeeElement = _this2.createEmployeeElement(employee, index);
+        _this2.container.appendChild(employeeElement);
+      });
+    }
+  }]);
+}();
+/* harmony default export */ __webpack_exports__["default"] = (Employees);
+
+/***/ }),
+/* 7 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ empAddForm; }
+/* harmony export */ });
+function empAddForm(data, employees) {
+  document.querySelector('.add-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Уникаємо стандартної поведінки форми
+
+    var name = document.querySelector('input[name="name"]').value.trim();
+    var salary = document.querySelector('input[name="salary"]').value.trim();
+    if (name && salary) {
+      employees.addEmployee(name, parseInt(salary, 10)); // Додаємо співробітника
+      document.querySelector('input[name="name"]').value = ''; // Очищаємо форму
+      document.querySelector('input[name="salary"]').value = '';
+    } else {
+      alert('Будь ласка, заповніть усі поля!');
+    }
+  });
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ empFilter; }
+/* harmony export */ });
+function empFilter(data, employees) {
+  var buttonFilter = document.querySelectorAll('.btn-filter');
+  buttonFilter.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var filterType = button.name;
+      var filterData = [];
+      switch (filterType) {
+        case 'Rise':
+          filterData = data.filter(function (element) {
+            return element.rise;
+          }); // Фільтруємо дані
+          break;
+        case 'Salary':
+          filterData = data.filter(function (element) {
+            return element.salary > 1000;
+          });
+          break;
+        default:
+          filterData = data;
+          break;
+      }
+      employees.loadInitialData(filterData); // Оновлюємо дані
+    });
+  });
+}
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -398,9 +600,14 @@ __webpack_require__.r(__webpack_exports__);
 //-------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ------------------------------------
   _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initHeaderMenu();
   _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initAccordion();
+  _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initEmployes();
+  var input = document.querySelector('.search-input');
+  input.addEventListener('input', function (e) {
+    console.log(input.value);
+  });
+  console.log(input.value);
 });
 }();
 /******/ })()

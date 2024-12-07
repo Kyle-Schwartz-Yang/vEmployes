@@ -6,24 +6,16 @@ mixin EmpFilter()
     const label = 'Кнопка';
 
     const buttonData = [
-      { type: 'button', label: "Все сотрудники", name: "All" },
-      { type: 'button', label: "На повышение", name: "Rise" },
-      { type: 'button', label: "ЗП больше чем 1000$", name: "Salary" }
+      {  label: "Все сотрудники", name: "All", className: 'btn-filter btn btn-light'},
+      {  label: "На повышение", name: "Rise",  className: 'btn-filter btn btn-outline-light'},
+      {  label: "ЗП больше чем 1000$", name: "Salary",  className: 'btn-filter btn btn-outline-light'}
     ]
-    
-    const buttons = buttonData.map(( { type, label, name } ) => {
 
-      return `<button 
-        type=${type} 
-        name=${name}
-        class='btn btn-outline-light'
-        > ${label} </button>
-        `
-    }).join('')
   -
 
-  .btn-group: != buttons
-  
+  .btn-group
+    each button in buttonData
+      button(type='button' name=button.name class=button.className)= button.label
 
 
 
