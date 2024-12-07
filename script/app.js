@@ -17,6 +17,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { initSerchEmployees } from "../../widgets/SearchPanel/_searchPanel.js";
+
 // ----------------------------NO-Modules (END)
 
 var modules = {
@@ -24,6 +26,7 @@ var modules = {
   initHeaderMenu: _widgets_Header_Header_js__WEBPACK_IMPORTED_MODULE_0__.initHeaderMenu,
   initAccordion: _shared_components_Accordion_Accordion_js__WEBPACK_IMPORTED_MODULE_1__.initAccordion,
   initEmployes: _modules_initEmployes_js__WEBPACK_IMPORTED_MODULE_2__.initEmployes
+
   // -------------------NO-Modules
 };
 
@@ -344,6 +347,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var _widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+
 
 
 
@@ -374,7 +379,8 @@ var initEmployes = function initEmployes() {
   }];
   employees.loadInitialData(data);
   (0,_widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])(data, employees);
-  (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__["default"])(data, employees);
+  (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__.empFilter)(data, employees);
+  (0,_widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__.initSerchEmployees)(data, employees);
 };
 
 /***/ }),
@@ -505,9 +511,9 @@ function empAddForm(data, employees) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ empFilter; }
+/* harmony export */   empFilter: function() { return /* binding */ empFilter; }
 /* harmony export */ });
-function empFilter(data, employees) {
+var empFilter = function empFilter(data, employees) {
   var buttonFilter = document.querySelectorAll('.btn-filter');
   buttonFilter.forEach(function (button) {
     button.addEventListener('click', function () {
@@ -531,7 +537,31 @@ function empFilter(data, employees) {
       employees.loadInitialData(filterData); // Оновлюємо дані
     });
   });
-}
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initSerchEmployees: function() { return /* binding */ initSerchEmployees; }
+/* harmony export */ });
+var initSerchEmployees = function initSerchEmployees(data, employees) {
+  var input = document.querySelector('.search-input');
+  input.addEventListener('input', function (event) {
+    var target = event.target;
+    var searchTerm = target.value.trim().toLowerCase();
+    if (searchTerm.length === 0) {
+      employees.loadInitialData(data);
+      return;
+    }
+    var serchEmpData = data.filter(function (item) {
+      return item.name.toLowerCase().includes(searchTerm);
+    });
+    return employees.loadInitialData(serchEmpData);
+  });
+};
 
 /***/ })
 /******/ 	]);
@@ -603,11 +633,6 @@ document.addEventListener('DOMContentLoaded', function () {
   _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initHeaderMenu();
   _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initAccordion();
   _components_app_scripts_main__WEBPACK_IMPORTED_MODULE_0__.modules.initEmployes();
-  var input = document.querySelector('.search-input');
-  input.addEventListener('input', function (e) {
-    console.log(input.value);
-  });
-  console.log(input.value);
 });
 }();
 /******/ })()
