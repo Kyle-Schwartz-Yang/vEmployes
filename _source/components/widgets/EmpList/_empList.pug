@@ -1,5 +1,15 @@
 include ../EmpListElem/_empListElem.pug
 
-mixin EmpList()
+mixin EmpList(props)
+  -
+    //- const data = [
+    //-   { name : 'John', salary : 200, increase: true, rise: true },
+    //-   { name : 'Ivan', salary : 5002, increase: false, rise: false },
+    //-   { name : 'Tommy', salary : 1001, increase: false, rise: false },
+    //- ]
+  -
+
   ul(class='app-list list-group')
-    +EmpListElem()
+  div(class='empty-message', style='display: none') Немає данних
+    //- each element in data
+    //-   +EmpListElem(element)

@@ -1,20 +1,21 @@
 
 
-mixin EmpListElem()
+mixin EmpListElem(props)
 
-  <li class='list-group-item d-flex justify-content-between'>
-    <span class="list-group-item-label">Jonth Simpon</span>
-    <input type="text" class="list-group-item-input"/>
-    <div class='d-flex justify-content-center align-items-center'>
+  -
+    let classNames = 'list-group-item d-flex justify-content-between';
+    if (props.increase) classNames += ' increase';
+    if (props.rise) classNames += ' like';
+  -
 
-        <button type="button" class="btn-cookie btn-sm">
-            <i class="fas fa-cookie"></i>
-        </button>
 
-        <button type="button" class="btn-trash btn-sm">
-            <i class="fas fa-trash"></i>
-        </button>
+  li(class=classNames)
+    span(class="list-group-item-label") #{props.name}
+    input(type="text", class="list-group-item-input", value=props.salary)
+    div(class='d-flex justify-content-center align-items-center')
+      button(type="button" class="btn-cookie btn-sm") :  <i class="fas fa-cookie"></i>
+      button(type="button" class="btn-trash btn-sm") : <i class="fas fa-trash"></i>
+      i(class="fas fa-star")
 
-        <i class="fas fa-star"></i>
-    </div>
-  </li>
+
+
