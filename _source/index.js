@@ -1,61 +1,10 @@
-"use strict"
+"use strict";
 //-------------------------------------------------------
-
 
 import { modules } from "./components/app/scripts/main";
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-
+document.addEventListener("DOMContentLoaded", () => {
   modules.initHeaderMenu();
   modules.initAccordion();
   modules.initEmployes();
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});

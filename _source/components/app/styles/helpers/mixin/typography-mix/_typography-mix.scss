@@ -1,5 +1,10 @@
-@mixin text-styles($font-family: null, $font-weight: null, $font-size: null, $line-height: null, $letter-spacing: null, ) {
-
+@mixin text-styles(
+  $font-family: null,
+  $font-weight: null,
+  $font-size: null,
+  $line-height: null,
+  $letter-spacing: null
+) {
   @if $font-family !=null {
     font-family: $font-family;
   }
@@ -32,6 +37,5 @@
   $font-family: null, $font-weight: null, $font-size: null, $line-height: null, $letter-spacing: null,
 }
 */
-
 
 // ------------------------------------------------------------------------------------------------------------------

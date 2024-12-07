@@ -47,10 +47,9 @@
 }
 
 @keyframes moveUpDown {
-
   // animation: moveUpDown 1.2s infinite;
   0% {
-    transform: scale(.88);
+    transform: scale(0.88);
   }
 
   50% {
@@ -59,24 +58,21 @@
   }
 
   100% {
-    transform: scale(.88);
+    transform: scale(0.88);
     /* Возвращается в исходное положение */
   }
 }
 
-
 @keyframes offon {
-
   // animation: offon 1.2s infinite;
   0% {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   100% {
     opacity: 0;
   }
 }
-
 
 @keyframes move {
   0% {
@@ -97,7 +93,6 @@
   }
 }
 
-
 @keyframes rotateElement {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -115,9 +110,8 @@
 }
 
 //! Анимация Используется :
-// Анимация "Качелька" расскачивать элементы 
+// Анимация "Качелька" расскачивать элементы
 @keyframes swing {
-
   // animation: swing 5s ease-in-out infinite;
   0% {
     transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 5deg);

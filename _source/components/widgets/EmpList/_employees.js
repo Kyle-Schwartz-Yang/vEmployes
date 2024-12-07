@@ -25,10 +25,10 @@ class Employees {
 
   // Генерація HTML для одного співробітника
   createEmployeeElement(employee, index) {
-    const li = document.createElement('li');
-    li.className = 'list-group-item d-flex justify-content-between';
-    if (employee.increase) li.classList.add('increase');
-    if (employee.rise) li.classList.add('like');
+    const li = document.createElement("li");
+    li.className = "list-group-item d-flex justify-content-between";
+    if (employee.increase) li.classList.add("increase");
+    if (employee.rise) li.classList.add("like");
 
     li.innerHTML = `
       <span class="list-group-item-label">${employee.name}</span>
@@ -44,16 +44,16 @@ class Employees {
       </div>
     `;
 
-    const trash = li.querySelector('.btn-trash');
-    const item = li.querySelector('.list-group-item-label');
-    const cookie = li.querySelector('.btn-cookie');
-    
-    trash.addEventListener('click', () => this.removeEmployee(index));
-    item.addEventListener('click', () => {
+    const trash = li.querySelector(".btn-trash");
+    const item = li.querySelector(".list-group-item-label");
+    const cookie = li.querySelector(".btn-cookie");
+
+    trash.addEventListener("click", () => this.removeEmployee(index));
+    item.addEventListener("click", () => {
       employee.rise = !employee.rise;
       this.render();
     });
-    cookie.addEventListener('click', () => {
+    cookie.addEventListener("click", () => {
       employee.increase = !employee.increase;
       this.render();
     });
@@ -63,15 +63,15 @@ class Employees {
 
   // Відображення списку
   render() {
-    this.container.innerHTML = '';
-    const empty = document.querySelector('.empty-message');
-    
+    this.container.innerHTML = "";
+    const empty = document.querySelector(".empty-message");
+
     if (this.data.length <= 0) {
-      empty.style = 'display: block';
+      empty.style = "display: block";
       return;
     }
 
-    empty.style.display = 'none';
+    empty.style.display = "none";
     this.data.forEach((employee, index) => {
       const employeeElement = this.createEmployeeElement(employee, index);
       this.container.appendChild(employeeElement);

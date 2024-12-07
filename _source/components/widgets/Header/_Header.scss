@@ -1,14 +1,7 @@
-@import './components/_HeaderMenu.scss';
+@import "./components/_HeaderMenu.scss";
 // @import '../../shared/components/ToggleTheme/_ToggleTheme.scss';
 
-
-
-
-
 .header {
-
-
-
   position: fixed;
   z-index: var(--titan);
   left: 0;
@@ -25,18 +18,15 @@
   }
 
   @media (max-width: 479px) {
-
     max-height: auto;
   }
 
   &__logo {
-
     color: var(--color-white);
     background-color: var(--color-black);
 
     // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     border: 1px solid white;
-
 
     & span:nth-of-type(1) {
       color: #00a2ff;
@@ -47,7 +37,6 @@
     }
 
     @media (max-width: 479px) {
-
       clip-path: none;
     }
 
@@ -58,15 +47,10 @@
     }
   }
 
-
   &__menu {
     @include flexbox(flex, center, center, null, null, 3rem);
     border: 1px solid var(--color-white);
   }
-
 }
-
-
-
 
 // ---------------------------------------------------------------

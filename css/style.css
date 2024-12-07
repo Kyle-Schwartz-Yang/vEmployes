@@ -129,16 +129,14 @@ main {
 
 :root {
   --box-shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1),
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    0 0px 0px rgba(0, 0, 0, .8);
+    0 10px 20px rgba(0, 0, 0, 0.1), 0 0px 0px rgba(0, 0, 0, 0.8);
   --box-shadow-primary: 0 3px 6px rgba(237, 236, 239, 0.3),
-    0 -3px 6px rgba(0, 0, 0, 0.3),
-    0 3px 12px rgba(0, 0, 0, 0.3);
+    0 -3px 6px rgba(0, 0, 0, 0.3), 0 3px 12px rgba(0, 0, 0, 0.3);
 }
 
 :root {
-  --transition-33s: all .33s ease;
-  --transition-66s: all .66s ease;
+  --transition-33s: all 0.33s ease;
+  --transition-66s: all 0.66s ease;
 }
 
 :root {
@@ -148,11 +146,8 @@ main {
 }
 
 :root {
-  --text-shodow-default: 5px 5px 5px #000,
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    2px 2px 5px #000 ;
+  --text-shodow-default: 5px 5px 5px #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 2px 2px 5px #000;
 }
 
 :root {
@@ -1157,7 +1152,7 @@ body {
   text-align: center;
   line-height: 35px;
   font-size: 16px;
-  color: #FFD700;
+  color: #ffd700;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   -webkit-transform: translateX(30px);
@@ -1173,7 +1168,8 @@ body {
           transform: translateX(0px);
 }
 
-.list-group-item.increase .list-group-item-label, .list-group-item.increase .list-group-item-input {
+.list-group-item.increase .list-group-item-label,
+.list-group-item.increase .list-group-item-input {
   color: #e09f3e;
 }
 

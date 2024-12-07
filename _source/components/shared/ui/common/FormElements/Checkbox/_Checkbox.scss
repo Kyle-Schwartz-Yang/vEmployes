@@ -1,5 +1,4 @@
 .checkbox {
-
   // .checkbox__input
 
   //+ WARD VALIDATION
@@ -10,7 +9,7 @@
   &__input {
     display: none;
 
-    &:checked+.checkbox__label::after {
+    &:checked + .checkbox__label::after {
       transform: scale(1);
     }
   }
@@ -18,7 +17,6 @@
   // .checkbox__label
 
   &__label {
-
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -28,31 +26,30 @@
     - Абсолютно тоже самое рисования как и для radio кнопок 
     */
     &::before {
-      content: '';
+      content: "";
       align-self: flex-start;
       flex: 0 0 24px;
       height: 24px;
       background: #fff;
-      border-radius: .2rem;
+      border-radius: 0.2rem;
       margin-right: 1rem;
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 4px;
       left: 4px;
       width: 16px;
       height: 16px;
       background-color: #ec5210;
-      border-radius: .3rem;
-      transition: .33s;
+      border-radius: 0.3rem;
+      transition: 0.33s;
       transform: scale(0);
     }
 
     & a {
       color: #ec5210;
     }
-
   }
 }

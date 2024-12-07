@@ -18,14 +18,13 @@ input[type="search"] {
 
 // ----------------------------------------------------- NULL Search (X)
 .search-default {
-
   position: relative;
   overflow: hidden;
   border-radius: 2.5rem;
   border: 1px solid #333;
   background-color: transparent;
   // border: 1px solid red;
-  padding: .5rem;
+  padding: 0.5rem;
   height: 4rem;
   min-width: 23rem;
   width: 23rem;
@@ -39,7 +38,12 @@ input[type="search"] {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(80, 79, 79, 0.8), transparent);
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(80, 79, 79, 0.8),
+      transparent
+    );
     transform: skewX(-25deg);
     z-index: -1;
     animation-name: shine;
@@ -52,19 +56,16 @@ input[type="search"] {
     // animation: none;
   }
 
-
   &:hover::after {
     animation: none;
   }
-
 
   &__input {
     // border: 1px solid red;
   }
 
-
   &__button {
-    margin: .5rem 1rem;
+    margin: 0.5rem 1rem;
     width: 20px;
     height: 20px;
 
@@ -72,21 +73,19 @@ input[type="search"] {
       color: #fff;
     }
   }
-
-
 }
 
 .search-input {
   width: 100%;
   height: 100%;
-  font-family: 'Life Savers';
+  font-family: "Life Savers";
   font-size: 1.6rem;
   color: var(--color-white);
   padding-right: 1rem;
   transition: all 0.3s ease-in-out;
 
   &::placeholder {
-    color: rgba(255, 255, 255, .3);
+    color: rgba(255, 255, 255, 0.3);
   }
 
   // &:focus {

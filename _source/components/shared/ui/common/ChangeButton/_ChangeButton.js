@@ -1,12 +1,7 @@
-
-
 export const initChangeButton = () => {
-  const change = document.querySelector('.change');
+  const change = document.querySelector(".change");
 
-  change.addEventListener('click', (e) => {
-    change.classList.toggle('_active');
-  })
-  
-}
-
-
+  change.addEventListener("click", (e) => {
+    change.classList.toggle("_active");
+  });
+};

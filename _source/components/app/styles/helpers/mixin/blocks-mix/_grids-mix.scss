@@ -1,8 +1,10 @@
-@mixin grid-container($columns: null,
+@mixin grid-container(
+  $columns: null,
   $gap: null,
   $align-items: null,
   $justify-content: null,
-  $flex-direction: null) {
+  $flex-direction: null
+) {
   display: grid;
 
   @if $columns !=null {
@@ -24,20 +26,20 @@
   @if $flex-direction !=null {
     @if $flex-direction ==column {
       grid-auto-flow: row;
-    }
-
-    @else {
+    } @else {
       grid-auto-flow: column;
     }
   }
 }
 
-@mixin grid-item($column-start: null,
+@mixin grid-item(
+  $column-start: null,
   $column-end: null,
   $row-start: null,
   $row-end: null,
   $justify-self: null,
-  $align-self: null) {
+  $align-self: null
+) {
   @if $column-start !=null {
     grid-column-start: $column-start;
   }
@@ -62,7 +64,6 @@
     align-self: $align-self;
   }
 }
-
 
 /*
 .container {
