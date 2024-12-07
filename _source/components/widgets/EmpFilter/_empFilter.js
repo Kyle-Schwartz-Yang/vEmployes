@@ -1,5 +1,5 @@
 
-export default function empFilter(data, employees) {
+export  const empFilter = (data, employees) => {
   const buttonFilter = document.querySelectorAll('.btn-filter');
 
   buttonFilter.forEach((button) => {
