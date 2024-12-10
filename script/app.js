@@ -346,16 +346,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var _widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
-/* harmony import */ var _widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
-/* harmony import */ var _widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
-/* harmony import */ var _widgets_EmpInfo_empInfo_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
-
+/* harmony import */ var _widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
 
 
 
 
 var initEmployes = function initEmployes() {
-  var employees = new _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__["default"](".app-list"); // Створюємо екземпляр класу
+  var employees = new _widgets_EmpList_employees_js__WEBPACK_IMPORTED_MODULE_0__["default"](".app-list", ".emp-info"); // Створюємо екземпляр класу
   // // // Завантаження початкових даних
 
   var data = [{
@@ -381,13 +379,8 @@ var initEmployes = function initEmployes() {
   }];
   employees.loadInitialData(data);
   (0,_widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])(data, employees);
-  (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__.empFilter)(data, employees);
-  (0,_widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__.initSerchEmployees)(data, employees);
-  (0,_widgets_EmpInfo_empInfo_js__WEBPACK_IMPORTED_MODULE_4__.empInfo)(data);
-  console.log(data.filter(function (item) {
-    return item.increase;
-  }).length);
-  console.log(data.length);
+  (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_3__.empFilter)(data, employees);
+  (0,_widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_2__.initSerchEmployees)(data, employees);
 };
 
 /***/ }),
@@ -402,10 +395,11 @@ function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), 
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var Employees = /*#__PURE__*/function () {
-  function Employees(containerSelector) {
+  function Employees(containerSelector, infoContainerSelector) {
     _classCallCheck(this, Employees);
     this.data = [];
     this.container = document.querySelector(containerSelector);
+    this.infoContainer = document.querySelector(infoContainerSelector); // Додаємо контейнер для статистики
   }
 
   // Завантаження початкових даних
@@ -414,6 +408,7 @@ var Employees = /*#__PURE__*/function () {
     value: function loadInitialData(data) {
       this.data = data;
       this.render();
+      this.updateEmployeeStats(); // Оновлюємо статистику після завантаження
     }
 
     // Додавання співробітника
@@ -430,6 +425,7 @@ var Employees = /*#__PURE__*/function () {
       };
       this.data.push(employee);
       this.render();
+      this.updateEmployeeStats(); // Оновлюємо статистику після додавання
     }
 
     // Видалення співробітника
@@ -438,6 +434,7 @@ var Employees = /*#__PURE__*/function () {
     value: function removeEmployee(index) {
       this.data.splice(index, 1);
       this.render();
+      this.updateEmployeeStats(); // Оновлюємо статистику після видалення
     }
 
     // Генерація HTML для одного співробітника
@@ -459,12 +456,29 @@ var Employees = /*#__PURE__*/function () {
       item.addEventListener("click", function () {
         employee.rise = !employee.rise;
         _this.render();
+        _this.updateEmployeeStats(); // Оновлюємо статистику після зміни статусу
       });
       cookie.addEventListener("click", function () {
         employee.increase = !employee.increase;
         _this.render();
+        _this.updateEmployeeStats(); // Оновлюємо статистику після зміни премії
       });
       return li;
+    }
+
+    // Оновлення статистики співробітників
+  }, {
+    key: "updateEmployeeStats",
+    value: function updateEmployeeStats() {
+      var total = this.data.length; // Загальна кількість співробітників
+      var premium = this.data.filter(function (item) {
+        return item.increase;
+      }).length; // Кількість преміальних співробітників
+
+      if (this.infoContainer) {
+        this.infoContainer.querySelector("#total").textContent = total;
+        this.infoContainer.querySelector("#premium").textContent = premium;
+      }
     }
 
     // Відображення списку
@@ -518,6 +532,30 @@ function empAddForm(data, employees) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   initSerchEmployees: function() { return /* binding */ initSerchEmployees; }
+/* harmony export */ });
+var initSerchEmployees = function initSerchEmployees(data, employees) {
+  var input = document.querySelector(".search-input");
+  input.addEventListener("input", function (event) {
+    var target = event.target;
+    var searchTerm = target.value.trim().toLowerCase();
+    if (searchTerm.length === 0) {
+      employees.loadInitialData(data);
+      return;
+    }
+    var serchEmpData = data.filter(function (item) {
+      return item.name.toLowerCase().includes(searchTerm);
+    });
+    return employees.loadInitialData(serchEmpData);
+  });
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   empFilter: function() { return /* binding */ empFilter; }
 /* harmony export */ });
 var empFilter = function empFilter(data, employees) {
@@ -544,49 +582,6 @@ var empFilter = function empFilter(data, employees) {
       employees.loadInitialData(filterData); // Оновлюємо дані
     });
   });
-};
-
-/***/ }),
-/* 9 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   initSerchEmployees: function() { return /* binding */ initSerchEmployees; }
-/* harmony export */ });
-var initSerchEmployees = function initSerchEmployees(data, employees) {
-  var input = document.querySelector(".search-input");
-  input.addEventListener("input", function (event) {
-    var target = event.target;
-    var searchTerm = target.value.trim().toLowerCase();
-    if (searchTerm.length === 0) {
-      employees.loadInitialData(data);
-      return;
-    }
-    var serchEmpData = data.filter(function (item) {
-      return item.name.toLowerCase().includes(searchTerm);
-    });
-    return employees.loadInitialData(serchEmpData);
-  });
-};
-
-/***/ }),
-/* 10 */
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   empInfo: function() { return /* binding */ empInfo; }
-/* harmony export */ });
-var empInfo = function empInfo(data) {
-  var totalElement = document.querySelector("#total");
-  var premiumElement = document.querySelector("#premium");
-
-  // Оновлення тексту
-  totalElement.textContent = data.length;
-  premiumElement.textContent = data.filter(function (item) {
-    return item.increase;
-  }).length;
 };
 
 /***/ })
