@@ -348,6 +348,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _widgets_EmpInfo_empInfo_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+
 
 
 
@@ -381,6 +383,11 @@ var initEmployes = function initEmployes() {
   (0,_widgets_EmpAddForm_empAddForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])(data, employees);
   (0,_widgets_EmpFilter_empFilter_js__WEBPACK_IMPORTED_MODULE_2__.empFilter)(data, employees);
   (0,_widgets_SearchPanel_searchPanel_js__WEBPACK_IMPORTED_MODULE_3__.initSerchEmployees)(data, employees);
+  (0,_widgets_EmpInfo_empInfo_js__WEBPACK_IMPORTED_MODULE_4__.empInfo)(data);
+  console.log(data.filter(function (item) {
+    return item.increase;
+  }).length);
+  console.log(data.length);
 };
 
 /***/ }),
@@ -561,6 +568,25 @@ var initSerchEmployees = function initSerchEmployees(data, employees) {
     });
     return employees.loadInitialData(serchEmpData);
   });
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   empInfo: function() { return /* binding */ empInfo; }
+/* harmony export */ });
+var empInfo = function empInfo(data) {
+  var totalElement = document.querySelector("#total");
+  var premiumElement = document.querySelector("#premium");
+
+  // Оновлення тексту
+  totalElement.textContent = data.length;
+  premiumElement.textContent = data.filter(function (item) {
+    return item.increase;
+  }).length;
 };
 
 /***/ })

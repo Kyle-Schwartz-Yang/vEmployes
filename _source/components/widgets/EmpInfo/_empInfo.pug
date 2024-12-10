@@ -5,15 +5,10 @@
 
 
 
-mixin EmpInfo(arg)
-
-  -
-    const isAdmin = arg.isAdmin ? 'Yes' : 'No' 
-    const {total, bonus} = arg
-  -
+mixin EmpInfo()
 
   .emp-info
-    h1.emp-info__title Учет сотруднико в компании: #{isAdmin}
-    h2.emp-info__subtitle Общее количество сотрудников: #{total}
-    h2.emp-info__subtitle Премию получат: #{bonus}
+    h1.emp-info__title Учет сотруднико в компании: 
+    h2(class='emp-info__subtitle') Общее количество сотрудников: <span id='total'></span>
+    h2(class='emp-info__subtitle') Премию получат: <span id='premium'></span>
 
