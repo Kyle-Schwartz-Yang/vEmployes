@@ -1,12 +1,11 @@
 import Employees from "../../../widgets/EmpList/_employees.js";
 import empAddForm from "../../../widgets/EmpAddForm/_empAddForm.js";
-import { empFilter } from "../../../widgets/EmpFilter/_empFilter.js";
+
 import { initSerchEmployees } from "../../../widgets/SearchPanel/_searchPanel.js";
 
-import { empInfo } from "../../../widgets/EmpInfo/_empInfo.js";
-
+import { empFilter } from "../../../widgets/EmpFilter/_empFilter.js";
 export const initEmployes = () => {
-  const employees = new Employees(".app-list"); // Створюємо екземпляр класу
+  const employees = new Employees(".app-list", ".emp-info"); // Створюємо екземпляр класу
   // // // Завантаження початкових даних
 
   const data = [
@@ -21,8 +20,4 @@ export const initEmployes = () => {
   empAddForm(data, employees);
   empFilter(data, employees);
   initSerchEmployees(data, employees);
-  empInfo(data);
-
-  console.log(data.filter((item) => item.increase).length);
-  console.log(data.length);
 };

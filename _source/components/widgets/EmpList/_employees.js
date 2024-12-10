@@ -1,13 +1,15 @@
 class Employees {
-  constructor(containerSelector) {
+  constructor(containerSelector, infoContainerSelector) {
     this.data = [];
     this.container = document.querySelector(containerSelector);
+    this.infoContainer = document.querySelector(infoContainerSelector); // Додаємо контейнер для статистики
   }
 
   // Завантаження початкових даних
   loadInitialData(data) {
     this.data = data;
     this.render();
+    this.updateEmployeeStats(); // Оновлюємо статистику після завантаження
   }
 
   // Додавання співробітника
@@ -15,12 +17,14 @@ class Employees {
     const employee = { name, salary, increase, rise };
     this.data.push(employee);
     this.render();
+    this.updateEmployeeStats(); // Оновлюємо статистику після додавання
   }
 
   // Видалення співробітника
   removeEmployee(index) {
     this.data.splice(index, 1);
     this.render();
+    this.updateEmployeeStats(); // Оновлюємо статистику після видалення
   }
 
   // Генерація HTML для одного співробітника
@@ -52,13 +56,26 @@ class Employees {
     item.addEventListener("click", () => {
       employee.rise = !employee.rise;
       this.render();
+      this.updateEmployeeStats(); // Оновлюємо статистику після зміни статусу
     });
     cookie.addEventListener("click", () => {
       employee.increase = !employee.increase;
       this.render();
+      this.updateEmployeeStats(); // Оновлюємо статистику після зміни премії
     });
 
     return li;
+  }
+
+  // Оновлення статистики співробітників
+  updateEmployeeStats() {
+    const total = this.data.length; // Загальна кількість співробітників
+    const premium = this.data.filter((item) => item.increase).length; // Кількість преміальних співробітників
+
+    if (this.infoContainer) {
+      this.infoContainer.querySelector("#total").textContent = total;
+      this.infoContainer.querySelector("#premium").textContent = premium;
+    }
   }
 
   // Відображення списку
